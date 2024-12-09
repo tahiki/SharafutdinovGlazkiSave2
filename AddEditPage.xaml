@@ -9,7 +9,27 @@
       Title="AddEditPage">
 
     <Grid>
-        <TextBlock Text="Hello!" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Название" FontSize="15" Grid.Column="0" Grid.Row="0"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Тип агента" FontSize="15" Grid.Column="0" Grid.Row="1"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Приоритетность" FontSize="15" Grid.Column="0" Grid.Row="3"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Продажи за год" FontSize="15" Grid.Column="0" Grid.Row="1"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="Номер телефона" FontSize="15" Grid.Column="0" Grid.Row="2"
+                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
     </Grid>
 </Page>
