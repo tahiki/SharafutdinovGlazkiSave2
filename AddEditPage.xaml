@@ -10,8 +10,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,17 +19,27 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Название" FontSize="15" Grid.Column="0" Grid.Row="0"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Text="Тип агента" FontSize="15" Grid.Column="0" Grid.Row="1"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Text="Приоритетность" FontSize="15" Grid.Column="0" Grid.Row="3"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Text="Продажи за год" FontSize="15" Grid.Column="0" Grid.Row="1"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-        <TextBlock Text="Номер телефона" FontSize="15" Grid.Column="0" Grid.Row="2"
-                   HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Наименование" FontSize="15" Height="20" MinWidth="120" Width="auto" Margin="5"></TextBlock>
+            <TextBox Text="{Binding Title}" FontSize="15" Height="20" Width="400"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Адрес" FontSize="15" Height="20" MinWidth="120" Width="auto" Margin="5"></TextBlock>
+            <TextBox Text="{Binding Address}" FontSize="15" Height="20" Width="500"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="Директор" FontSize="15" Height="20" MinWidth="120" Width="auto" Margin="5"></TextBlock>
+            <TextBox Text="{Binding DirectorName}" FontSize="15" Height="20" Width="400"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="3" Orientation="Vertical" Grid.RowSpan="4">
+            <TextBlock Text="Логотип" FontSize="15" Height="20" Width="auto" Margin="5"></TextBlock>
+            
+        
+        </StackPanel>
+        
     </Grid>
 </Page>
