@@ -248,5 +248,49 @@ namespace SharafutdinovGlazkiSave2
         {
             ChangePage(2, null);
         }
+
+        private void ChangePriorityButton_Click(object sender, RoutedEventArgs e)
+        {
+            int maxPriority = 0;
+            foreach (Agent agent in ServiceListView.SelectedItems)
+            {
+                if (agent.Priority > maxPriority)
+                    maxPriority = agent.Priority;
+            }
+            SetWindow myWindow = new SetWindow(maxPriority);
+            myWindow.ShowDialog();
+            MessageBox.Show(myWindow.TBPriority.Text);
+
+            if (string.IsNullOrEmpty(myWindow.TBPriority.Text))
+            {
+                MessageBox.Show("Изменений не произошло");
+            }
+            else
+            {
+                int newPriority = Convert.ToInt32(myWindow.TBPriority.Text);
+                foreach (Agent agent in ServiceListView.SelectedItems)
+                {
+                    agent.Priority = newPriority;
+                }
+                try
+                {
+                    ШарафутдиновГлазкиSaveEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена!");
+                    UpdateServices();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void ServiceListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ServiceListView.SelectedItems.Count > 1)
+                ChangePriorityButton.Visibility = Visibility.Visible;
+            else
+                ChangePriorityButton.Visibility = Visibility.Hidden;
+        }
     }
 }
