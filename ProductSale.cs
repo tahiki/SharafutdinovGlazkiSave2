@@ -22,5 +22,14 @@ namespace SharafutdinovGlazkiSave2
     
         public virtual Agent Agent { get; set; }
         public virtual Product Product { get; set; }
+
+        public decimal Stoimost
+        {
+            get
+            {
+                decimal p = Product.MinCostForAgent * ProductCount;
+                return p;
+            }
+        }
     }
 }

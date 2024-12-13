@@ -73,6 +73,14 @@ namespace SharafutdinovGlazkiSave2
             {
                 currentServices = currentServices.OrderByDescending(p => p.Title).ToList();
             }
+            if (SortType.SelectedIndex == 3)
+            {
+                currentServices = currentServices.OrderBy(p => p.SkidkaInt).ToList();
+            }
+            if (SortType.SelectedIndex == 4)
+            {
+                currentServices = currentServices.OrderByDescending(p => p.SkidkaInt).ToList();
+            }
             if (SortType.SelectedIndex == 5)
             {
                 currentServices = currentServices.OrderBy(p => p.Priority).ToList();
@@ -93,7 +101,7 @@ namespace SharafutdinovGlazkiSave2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            Manager.MainFrame.Navigate(new AddEditPage(null));
         }
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -133,12 +141,12 @@ namespace SharafutdinovGlazkiSave2
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            Manager.MainFrame.Navigate(new AddEditPage(null));
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Agent));
         }
 
         private void ChangePage(int direction, int? selectedPage)

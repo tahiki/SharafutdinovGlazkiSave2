@@ -115,7 +115,27 @@ namespace SharafutdinovGlazkiSave2
                 {
                     try
                     {
+                        ШарафутдиновГлазкиSaveEntities.GetContext().Agent.Remove(_currentAgent);
 
+                        if (currentAgentPriorityHistory.Count != 0)
+                        {
+                            for (int i = 0; currentAgentPriorityHistory.Count == i; i++)
+                                ШарафутдиновГлазкиSaveEntities.GetContext().AgentPriorityHistory.Remove(currentAgentPriorityHistory[i]);
+                        }
+                        if (currentShop.Count != 0)
+                        {
+                            for (int i = 0; currentShop.Count == 0; i++)
+                                ШарафутдиновГлазкиSaveEntities.GetContext().Shop.Remove(currentShop[i]);
+                        }
+                        ШарафутдиновГлазкиSaveEntities.GetContext().SaveChanges();
+
+                        MessageBox.Show("Информация удалена!");
+                        Manager.MainFrame.GoBack();
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
                     }
                 }
             }

@@ -41,7 +41,44 @@ namespace SharafutdinovGlazkiSave2
                 return AgentType.Title;
             }
         }
-    
+
+        public decimal Prod
+        {
+            get
+            {
+                decimal p = 0;
+                foreach (ProductSale sales in ProductSale)
+                {
+                    p = p + sales.Stoimost;
+                }
+                return p;
+            }
+        }
+
+        public double Skidka
+        {
+            get
+            {
+                if (Prod >= 500000)
+                    return 0.25;
+                if (Prod >= 150000)
+                    return 0.2;
+                if (Prod >= 50000)
+                    return 0.1;
+                if (Prod >= 10000)
+                    return 0.05;
+                return 0;
+            }
+        }
+
+        public int SkidkaInt
+        {
+            get
+            {
+                double s = Skidka * 100.0;
+                return (int)s;
+            }
+        }
         public virtual AgentType AgentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AgentPriorityHistory> AgentPriorityHistory { get; set; }
