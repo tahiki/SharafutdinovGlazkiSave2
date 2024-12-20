@@ -28,7 +28,6 @@ namespace SharafutdinovGlazkiSave2
             if (selectedAgent != null)
             {
                 this._currentAgent = selectedAgent;
-                ComboType.SelectedIndex = _currentAgent.AgentTypeID - 1;
             }
 
             DataContext = _currentAgent;
@@ -81,11 +80,12 @@ namespace SharafutdinovGlazkiSave2
                 return;
             }
 
+            _currentAgent.AgentTypeID = ComboType.SelectedIndex + 1;
             if (_currentAgent.ID == 0)
                 ШарафутдиновГлазкиSaveEntities.GetContext().Agent.Add(_currentAgent);
             try
             {
-                ШарафутдиновГлазкиSaveEntities.GetContext().Agent.Add(_currentAgent);
+                ШарафутдиновГлазкиSaveEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
                 Manager.MainFrame.GoBack();
             }
@@ -140,6 +140,11 @@ namespace SharafutdinovGlazkiSave2
                 }
             }
 
+        }
+
+        private void CostHistory_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new CostHistoryPage(_currentAgent));
         }
     }
 }

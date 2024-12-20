@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:SharafutdinovGlazkiSave2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="900"
-      Title="ServicePage">
+      Title="ServicePage"
+      IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>

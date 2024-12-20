@@ -68,6 +68,9 @@
     <Compile Include="AddEditPage.xaml.cs">
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddHistoryCostPage.xaml.cs">
+      <DependentUpon>AddHistoryCostPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Agent.cs">
       <DependentUpon>SharafutdinovModel.tt</DependentUpon>
     </Compile>
@@ -76,6 +79,9 @@
     </Compile>
     <Compile Include="AgentType.cs">
       <DependentUpon>SharafutdinovModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostHistoryPage.xaml.cs">
+      <DependentUpon>CostHistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Material.cs">
@@ -130,6 +136,14 @@
       <DependentUpon>SharafutdinovModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddHistoryCostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CostHistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

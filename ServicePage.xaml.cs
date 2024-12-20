@@ -259,7 +259,6 @@ namespace SharafutdinovGlazkiSave2
             }
             SetWindow myWindow = new SetWindow(maxPriority);
             myWindow.ShowDialog();
-            MessageBox.Show(myWindow.TBPriority.Text);
 
             if (string.IsNullOrEmpty(myWindow.TBPriority.Text))
             {
@@ -291,6 +290,16 @@ namespace SharafutdinovGlazkiSave2
                 ChangePriorityButton.Visibility = Visibility.Visible;
             else
                 ChangePriorityButton.Visibility = Visibility.Hidden;
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                ШарафутдиновГлазкиSaveEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = ШарафутдиновГлазкиSaveEntities.GetContext().Agent.ToList();
+                UpdateServices();
+            }
         }
     }
 }

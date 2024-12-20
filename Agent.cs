@@ -11,7 +11,8 @@ namespace SharafutdinovGlazkiSave2
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media;
+
     public partial class Agent
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -77,6 +78,17 @@ namespace SharafutdinovGlazkiSave2
             {
                 double s = Skidka * 100.0;
                 return (int)s;
+            }
+        }
+
+        public SolidColorBrush FonStyle
+        {
+            get
+            {
+                if (Prod > 500000)
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+                else
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("White");
             }
         }
         public virtual AgentType AgentType { get; set; }
